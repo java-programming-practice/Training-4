@@ -1,0 +1,14 @@
+
+/**
+ * 실습#4 
+ *
+ * @author (2019315027 최서연, 2019315036 허다희)
+ * @version (2020.11.23)
+ */
+public class MyHelloApp
+{
+    public static void main(String[] args){
+        MyHelloFrame mhf = new MyHelloFrame();
+
+    }
+}
