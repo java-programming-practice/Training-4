@@ -1,0 +1,69 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+/**
+ * MyHelloPanelListener 클래스
+ * 
+ * @author (2019315027 최서연, 2019315036 허다희) 
+ * @version (2020. 11. 23)
+ */
+public class MyHelloPanelListener extends JPanel implements KeyListener, MouseListener
+{
+    JLabel ml = new JLabel("HELLO");
+    public MyHelloPanelListener()
+    {
+        ml.setSize(100, 20);
+        this.setLayout(null);
+        ml.setLocation(50, 50);
+        this.add(ml);
+        this.setFocusable(true);
+        this.requestFocus();
+        this.addKeyListener(this);
+        this.addMouseListener(this);
+    }
+    public void mouseReleased(MouseEvent e)
+    {}
+    public void mouseEntered(MouseEvent e)
+    {
+        ml.setText("START");
+        this.setBackground(Color.YELLOW);
+    }
+    public void mouseExited(MouseEvent e)
+    {
+        ml.setText("END");
+        this.setBackground(Color.GRAY);
+    }
+    public void mouseClicked(MouseEvent e)
+    {
+        int x = e.getX();
+        int y = e.getY();
+        ml.setLocation(x, y);
+        ml.setText("("+e.getX()+", "+e.getY()+")");
+    }
+    public void mousePressed(MouseEvent e){};
+    public void keyPressed(KeyEvent e) 
+    {
+        int keyCode = e.getKeyCode();
+        switch(keyCode)
+        {
+            case KeyEvent.VK_UP:
+                ml.setLocation(ml.getX(), ml.getY()-10);
+                ml.setText("("+ml.getX()+", "+ml.getY()+")");
+                break;
+            case KeyEvent.VK_DOWN:
+                ml.setLocation(ml.getX(), ml.getY()+10);
+                ml.setText("("+ml.getX()+", "+ml.getY()+")");                
+                break;
+            case KeyEvent.VK_LEFT:
+                ml.setLocation(ml.getX()-10, ml.getY());
+                ml.setText("("+ml.getX()+", "+ml.getY()+")");
+                break;
+            case KeyEvent.VK_RIGHT:
+                ml.setLocation(ml.getX()+10, ml.getY());
+                ml.setText("("+ml.getX()+", "+ml.getY()+")");
+                break;
+        }
+    }
+    public void keyReleased(KeyEvent e){} 
+    public void keyTyped(KeyEvent e){}
+}
